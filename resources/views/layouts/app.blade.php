@@ -21,6 +21,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
+
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm">
@@ -80,7 +81,7 @@
                     @yield('botones')
                 </div>
 
-                <main class="py-4 mt-1 col-12">
+                <main class="py-4 mt-1 col-12 mx-auto">
                     @yield('content')
                 </main>
             </div>
