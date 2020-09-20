@@ -2,9 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+
+use Faker\Factory as Faker;
 
 class UsuariosSeeder extends Seeder
 {
@@ -15,31 +18,18 @@ class UsuariosSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => 'Leandro Arturi',
-            'email' => 'lea.arturi@gmail.com',
-            'password' => Hash::make('12345678'),
-            'url' => 'http://leandroarturi.com,ar',
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s'),
-        ]);
+        $faker = Faker::create();
 
-        DB::table('users')->insert([
-            'name' => 'Candelaria',
-            'email' => 'cande@gmail.com',
-            'password' => Hash::make('12345678'),
-            'url' => 'http://candelaria.com,ar',
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s'),
-        ]);
+        for ($i=0; $i < 10; $i++) {
+            $user = User::create([
+                'name' => $faker->firstname,
+                'email' => $faker->email,
+                'password' => Hash::make('123'),
+                'url' => $faker->domainName,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ]);
+        }
 
-        DB::table('users')->insert([
-            'name' => 'Lisandro',
-            'email' => 'lisandro@gmail.com',
-            'password' => Hash::make('12345678'),
-            'url' => 'http://lisandro.com,ar',
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s'),
-        ]);
     }
 }

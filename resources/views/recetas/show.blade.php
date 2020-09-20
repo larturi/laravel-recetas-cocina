@@ -4,7 +4,7 @@
 
 <article class="contenido-receta">
 
-    <h1 class="text-center">{{ $receta->titulo }}</h1>
+    <h1 class="text-center mb-4">{{ $receta->titulo }}</h1>
 
     <div class="imagen-receta">
         <img class="w-100 mb-3" src="/storage/{{ $receta->imagen }}" alt="">
@@ -40,6 +40,15 @@
         <h2 class="my-3 text-primary">Preparación</h2>
         {!! $receta->preparacion !!}
     </div>
+
+    <div class="justify-content-center row text-center">
+        <like-button
+            receta-id="{{ $receta->id }}"
+            like="{{ $like }}"
+            likes="{{ $likes }}">
+        </like-button>
+    </div>
+
 
 </article>
 

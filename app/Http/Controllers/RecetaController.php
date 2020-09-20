@@ -19,11 +19,15 @@ class RecetaController extends Controller
 
     public function index()
     {
-        $recetas = Auth::user()->recetas;
 
-        return view('recetas.index')->with('recetas', $recetas);
+        $usuario = Auth::user();
+
+        $recetas = Receta::where('user_id', $usuario->id)->paginate(10);
+
+        return view('recetas.index')
+            ->with('recetas', $recetas)
+            ->with('usuario', $usuario);
     }
-
 
     public function create()
     {
@@ -32,7 +36,6 @@ class RecetaController extends Controller
         return view('recetas.create')
              ->with('categorias', $categorias);
     }
-
 
     public function store(Request $request)
     {
@@ -68,12 +71,20 @@ class RecetaController extends Controller
 
     public function show(Receta $receta)
     {
-        return view('recetas.show')
-            ->with('receta', $receta);
+        // Obtener si al usuario actual le gusta la receta
+        $like = (auth()->user()) ? auth()->user()->meGusta->contains($receta->id) : false;
+
+        // Pasa la cantidad de likes a la vista
+        $likes = $receta->likes->count();
+
+        return view('recetas.show', compact('receta', 'like', 'likes'));
     }
 
     public function edit(Receta $receta)
     {
+        // Revisar el Policy
+        $this->authorize('view', $receta);
+
         $categorias = CategoriaReceta::all(['id', 'nombre']);
 
         return view('recetas.edit')

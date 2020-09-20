@@ -13,12 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 // Route::get('/recetas', 'RecetaController@index')->name('recetas.index');
 // Route::get('/recetas/create', 'RecetaController@create')->name('recetas.create');
 // Route::post('/recetas', 'RecetaController@store')->name('recetas.store');
@@ -26,4 +20,17 @@ Route::get('/', function () {
 // Route::get('/recetas/{receta}/edit', 'RecetaController@edit')->name('recetas.edit');
 // Route::put('/recetas/{receta}', 'RecetaController@update')->name('recetas.update');
 
+// Autenticacion
+Auth::routes();
+
+// Index
+Route::get('/', 'RecetaController@index')->name('recetas.index');
+
+// Resource Recetas
 Route::resource('recetas', 'RecetaController');
+
+// Resource Perfiles
+Route::resource('perfils', 'PerfilController');
+
+// Almacena los likes de las recetas
+Route::post('/recetas/{receta}', 'LikesController@update')->name('likes.update');

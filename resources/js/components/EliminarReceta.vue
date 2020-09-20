@@ -1,7 +1,7 @@
 <template>
    <input type="submit"
-        class="btn btn-sm btn-outline-danger mr-1 d-block w-100 mb-2"
-        value="Eliminar"
+        class="btn btn-sm d-block w-100 mb-2 btn-outline-danger mr-1 d-block"
+        value="ELIMINAR"
         v-on:click="eliminarReceta"
         >
 </template>
