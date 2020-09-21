@@ -2,7 +2,7 @@
 
 @section('content')
 
-<article class="contenido-receta">
+<article class="contenido-receta bg-white p-5 shadow">
 
     <h1 class="text-center mb-4">{{ $receta->titulo }}</h1>
 
@@ -10,15 +10,16 @@
         <img class="w-100 mb-3" src="/storage/{{ $receta->imagen }}" alt="">
     </div>
 
-    <div class="receta-meta">
+    <div class="receta-meta mt-3">
         <p>
             <span class="font-weight-bold text-primary">Escrito en:</span>
-            {{ $receta->categoria->nombre }}
+            <a class="text-dark" href="{{ route('categorias.show', $receta->categoria->id) }}">{{ $receta->categoria->nombre }}</a>
         </p>
 
         <p>
             <span class="font-weight-bold text-primary">Autor:</span>
-            {{ $receta->autor->name }}
+            <a class="text-dark" href="{{ route('perfils.show', $receta->autor->id) }}">{{ $receta->autor->name }}</a>
+
         </p>
 
         <p>
@@ -48,7 +49,6 @@
             likes="{{ $likes }}">
         </like-button>
     </div>
-
 
 </article>
 

@@ -24,7 +24,13 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 // Index
-Route::get('/', 'RecetaController@index')->name('recetas.index');
+Route::get('/', 'InicioController@index')->name('inicio.index');
+
+// Categorias
+Route::get('/categoria/{categoriaReceta}', 'CategoriasController@show')->name('categorias.show');
+
+// Buscador de Recetas
+Route::get('/buscar', 'RecetaController@search')->name('buscar.show');
 
 // Resource Recetas
 Route::resource('recetas', 'RecetaController');

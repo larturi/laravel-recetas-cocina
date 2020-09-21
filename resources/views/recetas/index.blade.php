@@ -46,6 +46,23 @@
             {!! $recetas->appends(request()->query())->links() !!}
         </div>
 
+        <h2 class="text-center my-5">Recetas que te gustan</h2>
+
+        @if (count($usuario->meGusta) > 0)
+            <div class="col-md-10 mx-auto bg-white p-3">
+                <ul class="list-group">
+                    @foreach ($usuario->meGusta as $receta)
+                        <li class="list-group-item d-flex justify-content-lg-between align-items-center">
+                            <p>{{ $receta->titulo }}</p>
+                            <a class="btn btn-outline-success" href="{{ route('recetas.show', ['receta' => $receta->id]) }}">Ver receta</a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        @else
+            <p class="text-center">Aun no has dado me gusta a ninguna receta</p>
+        @endif
+
     </div>
 
 @endsection
