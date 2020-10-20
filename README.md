@@ -7,6 +7,10 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+## About Recetas Cocina
+
+Sitio en Laravel tipo blog de Recetas del [Curso de Laravel](https://www.udemy.com/certificate/UC-9c34aaff-25b7-429f-bd2c-2fa22fff4c2c/)
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
