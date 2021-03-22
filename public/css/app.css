@@ -7153,7 +7153,7 @@ button.bg-dark:focus {
 }
 
 .rounded-circle {
-  border-radius: 50% !important;
+  border-radius: 5% !important;
 }
 
 .rounded-pill {
