@@ -7,6 +7,8 @@
         <div class="col-md-3 mx-auto text-center mt-4">
             @if ($perfil->imagen)
               <img src="/storage/{{ $perfil->imagen }}" class="w-75 rounded-circle">
+            @else
+              <img src="/storage/upload-perfiles/default.jpeg" class="w-75 rounded-circle">
             @endif
         </div>
 

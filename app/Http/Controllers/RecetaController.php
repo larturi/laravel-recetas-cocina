@@ -52,7 +52,7 @@ class RecetaController extends Controller
         $ruta_imagen = $request['imagen']->store('upload-recetas', 'public');
 
         // Resize imagen
-        $img = Image::make(public_path("storage/{$ruta_imagen}"))->fit(1000, 550);
+        $img = Image::make(base_path() . "/storage/app/public/" . $ruta_imagen)->fit(1000, 550);
         $img->save();
 
         // Insert en BD con Model
